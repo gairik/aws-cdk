@@ -18,13 +18,3 @@ RUN apk -v --no-cache --update add \
         && \
     update-ca-certificates && \
     npm install -g aws-cdk@${AWS_CDK_VERSION}
-
-VOLUME [ "/root/.aws" ]
-VOLUME [ "/opt/app" ]
-
-# Allow for caching python modules
-VOLUME ["/usr/lib/python3.8/site-packages/"]
-
-WORKDIR /opt/app
-
-CMD ["cdk", "--version"]
